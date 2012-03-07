@@ -158,6 +158,18 @@
 			</div>
 			
 		</div>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.ajax({
+                    url : "/",
+                    contentType : 'text/json',
+                    success : function(data) {
+                        console.log(data);    
+                    }
+                });
+            });
+        </script>
 		
 	</body>
 </html>
