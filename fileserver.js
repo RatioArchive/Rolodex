@@ -3,6 +3,18 @@ var mongo = require('mongoskin');
 var fs = require('fs');
 var path = require('path');
 
+// CREATE SERVER //
+http.createServer(function (request, response) {
+    
+    if ( request.headers['content-type'] != 'text/json' )
+        serveStaticFile(request, response);
+    else 
+        serveMongo(request, response);
+     
+}).listen(process.env.PORT, "0.0.0.0");
+console.log('Server running...');
+
+// FILE SERVER //
 var serveStaticFile = function(request, response) {
     var filePath = '.' + request.url;
     if (filePath == './')
@@ -42,19 +54,9 @@ var serveStaticFile = function(request, response) {
 		}
 	});    
 };
- 
-http.createServer(function (request, response) {
-    
-    if ( request.headers['content-type'] != 'text/json' )
-        serveStaticFile(request, response);
-    else 
-        serveMongo(request, response);
-	 
-}).listen(process.env.PORT, "0.0.0.0");
-console.log('Server running...');
 
 
-// SERVICES
+// SERVICES //
 var serveMongo = function(req, res) {
     
     var db = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
