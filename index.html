@@ -148,21 +148,25 @@
         
         <script type="text/javascript">
         $( document ).delegate("#about", "pagebeforecreate", function() {
-            $.ajax({
-                    url : "/",
-                    contentType : 'text/json',
-                    dataType : 'json',
-                    success : function(data) {
-                        var dataChunk = "";
-                        
-                        for (var i = 0; i < data.length; i++) {
-                              dataChunk += "<li><a href='#'>"+data[i].name+"</a></li>";
-                        }
-                        
-                        $("#nerd-list").append(dataChunk).listview('refresh');   
-                    }
-                });
+            nerdList();
         });
+        
+        function nerdList() {
+            $.ajax({
+                url : "/nerd-names",
+                contentType : 'text/json',
+                dataType : 'json',
+                success : function(data) {
+                    var dataChunk = "";
+                    
+                    for (var i = 0; i < data.length; i++) {
+                          dataChunk += "<li><a href='#'>"+data[i].name+"</a></li>";
+                    }
+                    
+                    $("#nerd-list").append(dataChunk).listview('refresh');   
+                }
+            });   
+        }
         </script>
 		
 	</body>

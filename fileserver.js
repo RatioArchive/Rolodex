@@ -6,10 +6,12 @@ var path = require('path');
 // CREATE SERVER //
 http.createServer(function (request, response) {
     
-    if ( request.headers['content-type'] != 'text/json' )
+    if      ( request.headers['content-type'] != 'text/json' ) {
         serveStaticFile(request, response);
-    else 
+    }
+    else if ( request.headers['content-type'] == 'text/json' ) {
         serveMongo(request, response);
+    }
      
 }).listen(process.env.PORT, "0.0.0.0");
 console.log('Server running...');
@@ -59,12 +61,15 @@ var serveStaticFile = function(request, response) {
 // SERVICES //
 var serveMongo = function(req, res) {
     
+    console.log('data resuest: '+req.url);
     var db = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
-  
-    db.collection('nerds').find({}).toArray(function(err, items){
-        if(err) throw err;
-
-        res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end(JSON.stringify(items));
-    }); 
+    
+    if (req.url == "/nerd-names") {
+        db.collections('nerds').find({}).toArray(function(err, items){
+            if(err) throw err;
+    
+            res.writeHead(200, {'Content-Type': 'text/plain'});
+            res.end(JSON.stringify(items));
+        });
+    }
 };
