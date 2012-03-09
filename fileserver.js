@@ -3,6 +3,9 @@ var mongo = require('mongoskin');
 var fs = require('fs');
 var path = require('path');
 
+// Database Connection //
+var db = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
+
 // CREATE SERVER //
 http.createServer(function (request, response) {
     
@@ -19,8 +22,7 @@ console.log('Server running...');
 // FILE SERVER //
 var serveStaticFile = function(request, response) {
     var filePath = '.' + request.url;
-    if (filePath == './')
-		filePath = './index.html';
+    if (filePath == './') filePath = './index.html';
 	
     
 	var extname = path.extname(filePath);
@@ -34,7 +36,7 @@ var serveStaticFile = function(request, response) {
 			break;
 	}
 	
-	console.log('request: ' + filePath + ", content type: " + contentType);
+	console.log('serving ' + filePath + ", content type: " + contentType);
 	 
 	path.exists(filePath, function(exists) {
 	 
@@ -57,19 +59,17 @@ var serveStaticFile = function(request, response) {
 	});    
 };
 
-
 // SERVICES //
 var serveMongo = function(req, res) {
     
-    console.log('data resuest: '+req.url);
-    var db = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
+    console.log('data request: '+req.url);
     
-    if (req.url == "/nerd-names") {
-        db.collections('nerds').find({}).toArray(function(err, items){
+    if (req.url == '/nerd-names') {
+        db.collection('nerds').find({}).toArray( function(err, items) {
             if(err) throw err;
     
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.end(JSON.stringify(items));
-        });
+        }); 
     }
 };
