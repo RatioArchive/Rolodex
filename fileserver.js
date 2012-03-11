@@ -68,8 +68,7 @@ var serveMongo = function(req, res) {
     console.log('data request: '+req.url);
     
     if(req.url.indexOf('?') > 0) {
-        nerd = req.url.substring(req.url.indexOf('?')+1, req.url.length);
-        nerd = unescape(nerd);
+        nerd = unescape(req.url.substring(req.url.indexOf('?')+1, req.url.length));
         req.url = req.url.substring(0, req.url.indexOf('?'));
     }
     

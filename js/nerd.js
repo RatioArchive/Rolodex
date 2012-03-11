@@ -13,7 +13,10 @@ function nerd(name) {
             $('#nerd-info').html(
                 '<li>' +
                     '<a href="mailto:'+nerd.email+'"><span class="icon-font pad-right">@</span>'+nerd.email+'</a>' +
-            	'</li>'  
+            	'</li>' +
+                '<li>' +
+                    '<a href="#"><span class="icon-font pad-right">Q</span>'+nerd.role+'</a>' +
+                '</li>'
             ).listview('refresh');
             
         }
