@@ -1,7 +1,8 @@
-var http = require('http'); 
-var mongo = require('mongoskin');
-var fs = require('fs');
-var path = require('path');
+var http = require('http'), 
+    fs = require('fs'),
+    path = require('path'),
+    mongo = require('mongoskin');
+    
 
 // Database Connection //
 var db = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
@@ -9,15 +10,16 @@ var db = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
 // CREATE SERVER //
 http.createServer(function (request, response) {
     
-    if      ( request.headers['content-type'] != 'text/json' ) {
-        serveStaticFile(request, response);
-    }
-    else if ( request.headers['content-type'] == 'text/json' ) {
+    if ( request.headers['content-type'] == 'text/json' ) {
         serveMongo(request, response);
     }
+    else {
+        serveStaticFile(request, response);
+    }
+    
      
 }).listen(process.env.PORT, "0.0.0.0");
-console.log('Server running...');
+console.log('server running...');
 
 // FILE SERVER //
 var serveStaticFile = function(request, response) {
@@ -61,15 +63,32 @@ var serveStaticFile = function(request, response) {
 
 // SERVICES //
 var serveMongo = function(req, res) {
+    var nerd = '';
     
     console.log('data request: '+req.url);
     
+    if(req.url.indexOf('?') > 0) {
+        nerd = req.url.substring(req.url.indexOf('?')+1, req.url.length);
+        nerd = unescape(nerd);
+        req.url = req.url.substring(0, req.url.indexOf('?'));
+    }
+    
     if (req.url == '/nerd-names') {
-        db.collection('nerds').find({}).toArray( function(err, items) {
+        db.collection('nerds').find({},{'name':1}).sort({name:1}).toArray( function(err, items) {
             if(err) throw err;
     
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.end(JSON.stringify(items));
         }); 
     }
+    else if (req.url == '/name') {
+        console.log('serving data on nerd '+nerd);
+        db.collection('nerds').find({name:nerd}).toArray( function(err, items) {
+            if(err) throw err;
+    
+            res.writeHead(200, {'Content-Type': 'text/plain'});
+            res.end(JSON.stringify(items));
+        }); 
+    }
+    
 };

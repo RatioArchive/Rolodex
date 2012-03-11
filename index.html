@@ -21,46 +21,17 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile.structure-1.0.1.min.css" />
 		<link rel="stylesheet" href="custom.css" />
 		
-		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 		<script src="js/prefixfree.min.js"></script>
 		
 	</head>
 	<body>
-	
-		<div data-role="page" id="index" data-position="fixed">
+    
+		<div data-role="page" id="home">
 		
 				<div data-role="header">
-					<a href="#menu-dialog" data-rel="dialog" class="ui-btn-left icon-font">²</a>
-					<h1>Home</h1>
-					<a href="#settings-dialog" data-rel="dialog" class="ui-btn-right icon-font">S</a>
-				</div><!-- /header -->
-			
-				<div data-role="content">	
-					<div class="center">
-						<img src="http://placehold.it/350x250">
-					</div>
-                    
-					<p><span class="icon-font pad-right">N</span>Cupcake ipsum dolor sit amet lemon drops chupa chups gummies. Pie biscuit gummi bears tart donut oat cake gingerbread danish jelly. Danish jelly-o dessert apple pie. Macaroon danish tart ice cream topping apple pie caramels.</p>
-					<p><span class="icon-font pad-right">c</span>Tart brownie gingerbread tiramisu marshmallow. Soufflé dragée marshmallow biscuit. Sesame snaps oat cake lollipop cotton candy pie sesame snaps tootsie roll brownie. Caramels cheesecake dragée jujubes gummies chocolate cake lemon drops ice cream.</p>
-					<p><span class="icon-font pad-right">d</span>Sesame snaps candy tart wafer. Oat cake gummi bears gummi bears sesame snaps candy canes sweet roll faworki gummi bears. Jujubes brownie cake cheesecake sweet. Pastry dragée cheesecake.</p>	
-					
-					<br>
-					<p class="center">Are you wierd and want to read more?</p><br><br>
-					
-					<a href="#about" data-role="button"><span class="icon-font pad-right">U</span>About</a>
-					<a href="#contact" data-role="button"><span class="icon-font pad-right">c</span>Contact</a>
-					
-				</div><!-- /content -->
-	
-		</div><!-- /page -->
-		
-		<div data-role="page" id="about" data-position="fixed">
-		
-				<div data-role="header">
-					<a href="#menu-dialog" data-rel="dialog" class="ui-btn-left icon-font">²</a>
-					<h1>About</h1>
-					<a href="#settings-dialog" data-rel="dialog" class="ui-btn-right icon-font">S</a>
+					<h1>Find A Nerd!</h1>
 				</div><!-- /header -->
 				
 				<div data-role="content">	
@@ -70,104 +41,42 @@
 				</div><!-- /content -->
 	
 		</div><!-- /page -->
-		
-		<div data-role="page" id="contact" data-position="fixed">
-		
+        
+        <div data-role="page" id="nerd">
+    	
 				<div data-role="header">
-					<a href="#menu-dialog" data-rel="dialog" class="ui-btn-left icon-font">²</a>
-					<h1>Contact</h1>
-					<a href="#settings-dialog" data-rel="dialog" class="ui-btn-right icon-font">S</a>
+                    <a data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
+					<h1 id="name"></h1>
 				</div><!-- /header -->
-			
-				<div data-role="content">	
-					<p>hi again.</p>
-					
-					<label for="basic"><span class="icon-font pad-right">A</span>Text Input:</label>
-					<input type="text" name="name" id="basic" placeholder="We like you" />
-					<br>
-					
-					<fieldset data-role="controlgroup">
-						<legend><span class="icon-font pad-right">P</span>Reason for contacting:</legend>
-							<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
-							<label for="radio-choice-1">Bored</label>
-					
-							<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
-							<label for="radio-choice-2">Fan</label>
-					
-							<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
-							<label for="radio-choice-3">Hamster</label>
-					
-							<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4"  />
-							<label for="radio-choice-4">Chill</label>
-					</fieldset>
-					
-					<fieldset data-role="controlgroup" data-type="horizontal">
-					   <legend><span class="icon-font pad-right">U</span>Are you a geek?:</legend>
-					   <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
-					   <label for="checkbox-1">Yes</label>
-					   <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
-					   <label for="checkbox-2">No</label>
-					   <input type="checkbox" name="checkbox-3" id="checkbox-3" class="custom" />
-					   <label for="checkbox-3">Maybe</label>
-					</fieldset>
-					
-					<label for="textarea-a"><span class="icon-font pad-right">@</span>Message:</label>
-						<textarea name="textarea" id="textarea-a">I'm a basic textarea. If this is pre-populated with content, the height will be automatically adjusted to fit without needing to scroll. That is a pretty handy usability feature.
-					</textarea>
-					
+				
+				<div data-role="content">
+                    <div id="nerd-pic" class="center"></div>
+					<ul id="nerd-info" data-role="listview">
+						
+					</ul>	
 				</div><!-- /content -->
 	
 		</div><!-- /page -->
-		
-		<!--Dialogs-->
-		<div data-role="page" id="menu-dialog">
-			<div data-role="header">
-				<h1>Menu</h1>
-			</div>
-			<div data-role="content">
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><a href="#index" data-role="button" class="ui-btn-taller">Home</a></div>
-					<div class="ui-block-b"><a href="#about" data-role="button" class="ui-btn-taller">About</a></div>
-					<div class="ui-block-a"><a href="#contact" data-role="button" class="ui-btn-taller">Contact</a></div>
-					<div class="ui-block-b"><a href="#settings-dialog" data-role="button" class="ui-btn-taller" data-rel="dialog">Settings</a></div>
-				</div><!-- /grid-b -->
-			</div>
-		</div>
-		
-		<div data-role="page" id="settings-dialog">
-		
-			<div data-role="header">
-				<h1>Settings</h1>
-			</div>
-			
-			<div data-role="content">
-				<p>Todo: Have component examples here for ui controls</p>
-			</div>
-			
-		</div>
         
         <script type="text/javascript">
-        $( document ).delegate("#about", "pagebeforecreate", function() {
-            nerdList();
-        });
         
-        function nerdList() {
-            $.ajax({
-                url : "/nerd-names",
-                contentType : 'text/json',
-                dataType : 'json',
-                success : function(data) {
-                    var dataChunk = "";
-                    
-                    for (var i = 0; i < data.length; i++) {
-                          dataChunk += "<li><a href='#'>"+data[i].name+"</a></li>";
-                    }
-                    
-                    $("#nerd-list").append(dataChunk).listview('refresh');   
-                }
-            });   
-        }
+            // This lets you make your calls before jquery-mobile does it's ajax calls to display this page //
+            $(document).delegate('#home', 'pagebeforecreate', function() {
+                nerdList();     // js/nerd-names.js
+            });
+            
+            $(document).ready(function() {
+                
+                $('#nerd-list').on('click','a', function(e) {
+                    nerd($(this).attr('nerd'));
+                });
+                
+            });
+        
         </script>
+        
+        <script src="js/nerd.js"></script>
+        <script src="js/nerd-names.js"></script>
 		
 	</body>
 </html>

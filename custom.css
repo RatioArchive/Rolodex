@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-/* use this font to have scaleable vector icons that you can change styles with css. reference for character mapping here: http://www.justbenicestudio.com/studio/websymbols/ */
+/* use this font to have scaleable vector icons that you can change styles with css. 
+reference for character mapping here: http://www.justbenicestudio.com/studio/websymbols/ */
+
 @font-face{ 
 	font-family: 'WebSymbolsRegular';
     src: url('img/fonts/websymbols-regular-webfont.eot');
