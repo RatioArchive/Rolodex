@@ -13,20 +13,20 @@ function nerd(name) {
             $('#nerd-pic').html('<img src="http://placehold.it/250x250&text='+nerd.name+'">');
             
             // nerd data list items //
-            if (nerd.email) {
-                 nerdInfo +=
-                    '<li>' +
-                        '<a href="mailto:'+nerd.email+'"><span class="icon-font pad-right">@</span>'+nerd.email+'</a>' +
-                    '</li>'    
-                ;  
-            }
-            
             if (nerd.role) {
                 nerdInfo +=
                     '<li>' +
                         '<a href="#"><span class="icon-font pad-right">Q</span>'+nerd.role+'</a>' +
                     '</li>'   
                 ;
+            }
+            
+            if (nerd.email) {
+                 nerdInfo +=
+                    '<li>' +
+                        '<a href="mailto:'+nerd.email+'"><span class="icon-font pad-right">@</span>'+nerd.email+'</a>' +
+                    '</li>'    
+                ;  
             }
             
             $('#nerd-info').html(nerdInfo).listview('refresh');       // refresh the list skin and search component
