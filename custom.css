@@ -26,7 +26,8 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 	margin:0 auto;	
 }
 
-.pad-right { padding-right:5px; }
+.pad-right { padding-right:10px; }
+.margin-bottom-ten { margin-bottom:10px; }
 
 .icon-only > .ui-btn-inner {
 	height:15px;
@@ -36,6 +37,11 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 .ui-btn-taller { padding:30px 0 ; }
 
 .ui-page { transform:translateZ(0); }
+
+.ui-btn-corner-all { border-radius:0 !important; }
+.ui-btn-up-c, .ui-btn-hover-c { background:none; }
+.ui-btn-down-c { border-top-color: #ccc !important; }
+.ui-btn-active, .ui-btn-active a { color:#111 !important; text-shadow:none; border-top-color:#ccc !important; }
 
 #nerd img {
     width:250px;

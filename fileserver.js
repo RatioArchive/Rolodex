@@ -3,9 +3,9 @@ var http = require('http'),
     path = require('path'),
     mongo = require('mongoskin');
 
-
 // Database Connection //
 var db = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
+var nerds = db.collection('nerds');
 
 // CREATE SERVER //
 http.createServer(function(request, response) {
@@ -75,29 +75,25 @@ var serveMongo = function(req, res) {
     }
 
     if (req.url == '/nerd-names') {
-        db.collection('nerds').find({}, {
+        nerds.find({}, {
             'name': 1
         }).sort({
             name: 1
         }).toArray(function(err, items) {
             if (err) throw err;
 
-            res.writeHead(200, {
-                'Content-Type': 'text/plain'
-            });
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
             res.end(JSON.stringify(items));
         });
     }
     else if (req.url == '/name') {
         console.log('serving data on nerd ' + nerd);
-        db.collection('nerds').find({
+        nerds.find({
             name: nerd
         }).toArray(function(err, items) {
             if (err) throw err;
 
-            res.writeHead(200, {
-                'Content-Type': 'text/plain'
-            });
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
             res.end(JSON.stringify(items));
         });
     }
