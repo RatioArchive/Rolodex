@@ -15,7 +15,7 @@ function nerdList() {
                   dataChunk += '<li style="left:-'+$(window).width()+'px;"><a nerd="'+data[i].name+'" href="#nerd"><span class="icon-font pad-right">U</span>'+data[i].name+'</a></li>';
             }
             
-            $('#nerd-list').append(dataChunk).listview('refresh').find('li').each(function() {
+            $('#nerd-list').html(dataChunk).listview('refresh').find('li').each(function() {
                   $(this).delay(offset).transition({ left: '0px' });
                   offset += 150;
             });

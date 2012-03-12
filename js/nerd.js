@@ -9,7 +9,7 @@ function nerd(name) {
             var nerd = data[0];
             var nerdInfo = '';
             
-            $('#nerd').find('h1').text(nerd.name).prepend('<span class="icon-font pad-right">U</span>');
+            $('#nerd').attr('name',nerd.name).find('h1').text(nerd.name).prepend('<span class="icon-font pad-right">U</span>');
             $('#nerd-pic').html('<img src="http://placehold.it/250x250&text='+nerd.name+'">');
             
             // nerd data list items //

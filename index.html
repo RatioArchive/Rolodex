@@ -30,8 +30,10 @@
     
 		<div data-role="page" id="home">
 		
-				<div data-role="header">
-					<h1>Find A Ratio Nerd</h1>
+				<div data-role="header" data-theme="c">
+					<a id="nerd-list-refresh" data-role="button" href="#"><span class="icon-font pad-right">V</span>Refresh</a>
+                    <h1>&nbsp;</h1>
+                    <a class="ui-btn-right" href="#add-nerd" data-transition="slidedown"><span class="icon-font pad-right">U</span>Add Nerd</a>
 				</div><!-- /header -->
 				
 				<div data-role="content">	
@@ -44,7 +46,7 @@
         
         <div data-role="page" id="nerd">
     	
-				<div data-role="header">
+				<div data-role="header" data-theme="c">
                     <a data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
 					<h1 id="name"></h1>
 				</div><!-- /header -->
@@ -55,28 +57,66 @@
 						
 					</ul>	
 				</div><!-- /content -->
+                
+                <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-inline="true" data-role="button" data-theme="c" class="center"><span class="icon-font pad-right">+</span>Add</a>
 	
 		</div><!-- /page -->
         
-        <script type="text/javascript">
+        <div data-role="page" id="add-nerd">
         
-            // This lets you make your calls before jquery-mobile does it's ajax calls to display this page //
-            $(document).delegate('#home', 'pagebeforecreate', function() {
-                nerdList();     // js/nerd-names.js
-            });
-            
-            $(document).ready(function() {
-                
-                $('#nerd-list').on('click','a', function(e) {
-                    nerd($(this).attr('nerd'));
-                });
-                
-            });
+				<div data-role="header" data-theme="c">
+                    <a id="add-nerd-back" data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
+					<h1 id="name">&nbsp;</h1>
+				</div><!-- /header -->
+				
+				<div data-role="content">
+                    <p class="center"><span class="icon-font pad-right">W</span>All that's required is a <b>full name</b>.</p>
+                    <br>
+                    
+                    <label for="new-nerd-name">Full Name:</label>
+                    <input type="text" name="new-nerd-name" id="new-nerd-name" value="" placeholder="What shall we call them?"/>
+                    
+                    <br><br>
+                    <a id="new-nerd-btn" data-inline="true" data-role="button" data-theme="a" class="right"><span class="icon-font pad-right">.</span>Ready</a>
+				</div><!-- /content -->
+	
+		</div><!-- /page -->
         
-        </script>
+        <div data-role="page" id="add-nerd-meta">
         
+    			<div data-role="header" data-theme="c">
+                    <a id="add-nerd-meta-back" data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
+					<h1 id="name">&nbsp;</h1>
+				</div><!-- /header -->
+				
+				<div data-role="content">
+                    <p class="center"><span class="icon-font pad-right">W</span>Choose available attribute.</p>
+                    <br>
+                    
+                    <label for="nerd-meta-key" class="select">What about them:</label>
+                    <select name="nerd-meta-key" id="nerd-meta-key">
+                       <option value="email">Email</option>
+                       <option value="role">Role</option>
+                       <option value="im">Instant Messenger</option>
+                       <option value="hours">Work Hours</option>
+                    </select>
+                    
+                    <br><br>
+                    
+                    <label for="nerd-meta-value">And that is:</label>
+                    <input type="text" name="nerd-meta-value" id="nerd-meta-value" value=""/>
+                    
+                    <br><br>
+                    <a id="add-to-nerd-btn" data-inline="true" data-role="button" data-theme="a" class="right"><span class="icon-font pad-right">.</span>Ready</a>
+				</div><!-- /content -->
+	
+		</div><!-- /page -->
+        
+        <script src="js/script.js"></script>
         <script src="js/nerd.js"></script>
         <script src="js/nerd-names.js"></script>
+        <script src="js/new-nerd.js"></script>
+        <script src="js/nerd-meta.js"></script>
         <script src="js/jquery.transit.js"></script>
 		
 	</body>

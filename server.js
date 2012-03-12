@@ -65,12 +65,23 @@ var serveStaticFile = function(request, response) {
 
 // SERVICES //
 var serveMongo = function(req, res) {
-    var nerd = '';
+    var nerd = [];
 
     console.log('data request: ' + req.url);
 
     if (req.url.indexOf('?') > 0) {
-        nerd = unescape(req.url.substring(req.url.indexOf('?') + 1, req.url.length));
+        if(req.url.indexOf('add-to-nerd') > 0) {
+            var values = req.url.substring(req.url.indexOf('?') + 1, req.url.length);
+            values = values.split("&");
+            console.log(values[0]);
+            nerd.name = values[0];
+            nerd.key = values[1];
+            nerd.value = values[2];
+        } 
+        else {
+            nerd.name = unescape(req.url.substring(req.url.indexOf('?') + 1, req.url.length)); 
+        }
+        
         req.url = req.url.substring(0, req.url.indexOf('?'));
     }
 
@@ -87,14 +98,43 @@ var serveMongo = function(req, res) {
         });
     }
     else if (req.url == '/name') {
-        console.log('serving data on nerd ' + nerd);
+        console.log('serving data on nerd ' + nerd.name);
         nerds.find({
-            name: nerd
+            name: nerd.name
         }).toArray(function(err, items) {
             if (err) throw err;
 
             res.writeHead(200, { 'Content-Type': 'text/plain' });
             res.end(JSON.stringify(items));
+        });
+    }
+    
+    else if (req.url == '/new-nerd') {
+        console.log('adding new nerd ' + nerd.name);
+        nerds.insert({
+            name: nerd.name
+        }, function(err, result) {
+            if (err) throw err;
+            if (result) console.log('Nerd added!');
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end(JSON.stringify(result));
+        });
+    }
+    
+    else if (req.url == '/add-to-nerd') {
+        //extract 3 values
+        console.log('adding ' + nerd.key + ' to ' + nerd.name);
+        nerds.update({
+            name: nerd.name
+        }, {
+            $set : {
+                nerd.key : nerd.value   
+            }
+        }, function(err, result) {
+            if (err) throw err;
+            if (result) console.log('Nerd updated');
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end(JSON.stringify(result));
         });
     }
 

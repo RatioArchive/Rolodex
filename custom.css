@@ -25,6 +25,7 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 	text-align:center;
 	margin:0 auto;	
 }
+.right { float:right; }
 
 .pad-right { padding-right:10px; }
 .margin-bottom-ten { margin-bottom:10px; }
@@ -37,7 +38,9 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 .ui-btn-taller { padding:30px 0 ; }
 
 .ui-page { transform:translateZ(0); }
-
+.ui-icon-loading { background:url(img/ratio-loading.gif) no-repeat center center; background-size:100% auto; opacity:1 !important; }
+.ui-loader { border-radius:50%; height:80px !important; width:70px !important; padding-top:30px; margin-left:-70px !important; margin-top:-75px !important; }
+.spin { transform:rotate(0deg) !important; animation-name:none; width:70px !important; height:30px !important; }
 .ui-btn-corner-all { border-radius:0 !important; }
 .ui-btn-up-c, .ui-btn-hover-c { background:none; }
 .ui-btn-down-c { border-top-color: #ccc !important; }
@@ -46,4 +49,10 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 #nerd img {
     width:250px;
     height:250px;
+}
+
+#new-nerd-meta-btn {
+    margin-top:50px;
+    display:block;
+    width:110px;
 }
