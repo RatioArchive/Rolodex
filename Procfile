@@ -1,2 +1,1 @@
-web: node web.js
-worker: fileserver.js
+web: node server.js
