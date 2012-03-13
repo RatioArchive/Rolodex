@@ -3,6 +3,11 @@ $(document).delegate('#home', 'pagebeforecreate', function() {
     nerdList();     // js/nerd-names.js
 });
 
+$(document).delegate('#nerd', 'pageremove', function() {
+    console.log('page removed');
+    nerd($(this).attr('nerd'));     // js/nerd.js
+});
+
 $(document).ready(function() {
     
     $('#new-nerd-btn').on('tap', function() {
@@ -24,8 +29,13 @@ $(document).ready(function() {
         nerd($(this).attr('nerd'));
     });
     
-    $('#nerd-list-refresh').on('tap', function() {
-       nerdList(); 
+    $('#nerd-refresh').on('tap', function() {
+        console.log($(this).attr('nerd'));
+        nerd($('#nerd').attr('name')); 
     });
+    
+    /* $('#nerd-list-refresh').on('tap', function() {
+       nerdList(); 
+    }); */
     
 });

@@ -126,14 +126,20 @@ var serveMongo = function(req, res) {
         var meta = makeKeyValuePairFromStrings(nerd.key,nerd.value);
         nerds.updateById(
             nerd.id.toString(),
-            { $set : meta }
-        );
+            { $set : meta },
+        function(err, result) {
+            if (err) throw err;
+            if (result) console.log('Nerd added!');
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end(JSON.stringify(result));
+        });
     }
 
 };
 
 function makeKeyValuePairFromStrings(key,value) {
     var pair;
+    if(key != "image" && key != "website" && key != "linkedin" && key != "twitter") value = unescape(value);
     switch(key) {
         case "name":
             pair = { name : value };
@@ -150,8 +156,23 @@ function makeKeyValuePairFromStrings(key,value) {
         case "im":
             pair = { im : value };
             break;
-        case "url":
-            pair = { url : value };
+        case "image":
+            pair = { image : value };
+            break;
+        case "website":
+            pair = { website : value };
+            break;
+        case "linkedin":
+            pair = { linkedin : value };
+            break;
+        case "twitter":
+            pair = { twitter : value };
+            break;
+        case "skills":
+            pair = { skills : value };
+            break;
+        case "skype":
+            pair = { skype : value };
             break;
     }
     return pair;

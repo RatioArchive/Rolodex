@@ -31,7 +31,7 @@
 		<div data-role="page" id="home">
 		
 				<div data-role="header" data-theme="c">
-					<a id="nerd-list-refresh" data-role="button" href="#"><span class="icon-font pad-right">V</span>Refresh</a>
+					<!-- <a id="nerd-list-refresh" data-role="button" href="#"><span class="icon-font pad-right">V</span>Refresh</a> -->
                     <h1>&nbsp;</h1>
                     <a class="ui-btn-right" href="#add-nerd" data-transition="slidedown"><span class="icon-font pad-right">U</span>Add</a>
 				</div><!-- /header -->
@@ -49,6 +49,7 @@
 				<div data-role="header" data-theme="c">
                     <a data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
 					<h1 id="name"></h1>
+                    <a style="display:none;" id="nerd-refresh" data-role="button" href="#"><span class="icon-font pad-right">V</span>Refresh</a>
 				</div><!-- /header -->
 				
 				<div data-role="content">
@@ -58,7 +59,7 @@
 					</ul>	
 				</div><!-- /content -->
                 
-                <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="center"><span class="icon-font pad-right">+</span>Add Something</a>
+                <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="center"><span class="icon-font pad-right">+</span>Add or Update Something</a>
 	            <br><br>
 		</div><!-- /page -->
         
@@ -85,7 +86,7 @@
         <div data-role="page" id="add-nerd-meta">
         
     			<div data-role="header" data-theme="c">
-                    <a id="add-nerd-meta-back" data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
+                    <a id="add-nerd-meta-back" data-rel="back"><span class="icon-font pad-right">;</span>Back</a>
 					<h1 id="name">&nbsp;</h1>
 				</div><!-- /header -->
 				
@@ -95,10 +96,17 @@
                     
                     <label for="nerd-meta-key" class="select">What about them:</label>
                     <select name="nerd-meta-key" id="nerd-meta-key">
-                       <option value="email">Email</option>
-                       <option value="role">Role</option>
-                       <option value="im">Instant Messenger</option>
-                       <option value="hours">Work Hours</option>
+                        <option value="name">Name</option>
+                        <option value="email">Email</option>
+                        <option value="role">Role</option>
+                        <option value="im">Instant Messenger</option>
+                        <option value="skype">Skype</option>
+                        <option value="hours">Work Hours</option>
+                        <option value="skills">Skills</option>
+                        <option value="linkedin">Linked In</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="website">Website Url</option>
+                        <option value="image">Image Url</option>
                     </select>
                     
                     <br>

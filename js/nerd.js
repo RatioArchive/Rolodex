@@ -9,27 +9,37 @@ function nerd(name) {
             var nerd = data[0];
             var nerdInfo = '';
             
-            $('#nerd').attr({'data-id':nerd._id,'name':nerd.name}).find('h1').text(nerd.name).prepend('<span class="icon-font pad-right">U</span>');
-            $('#nerd-pic').html('<img src="http://placehold.it/250x250&text='+nerd.name+'">');
+            $('#nerd').attr({'data-id':nerd._id,'name':nerd.name}).find('h1').text(nerd.name);
+            
+            if(nerd.image)  $('#nerd-pic').html('<img src="'+nerd.image+'">');
+            else            $('#nerd-pic').html('');
             
             // nerd data list items //
             $.each(nerd, function(key, value) {
                 
-                if(value != nerd._id && value != nerd.name) {
-                
+                if(value != nerd._id && value != nerd.name && value != nerd.image) {
+                    
                     // assemble li element
                     var li = '<li><a href="';
                     
-                    if (value == nerd.email) li += 'mailto:'+value+'"><span class="icon-font pad-right">@</span>';
-                    else li += '#">';
+                    // put in url
+                    if      (value == nerd.email) li += 'mailto:'+value+'">';
+                    else if (value == nerd.linkedin || value == nerd.twitter || value == nerd.website) li += ''+value+'">';
+                    else    li += '#">';
                     
                     // inject custom icon
-                    if (value == nerd.role) li += '<span class="icon-font pad-right">Q</span>';
-                    if (value == nerd.im) li += '<span class="icon-font pad-right">d</span>';
+                    if (value == nerd.role) li += '<span class="icon-font pad-right">R</span>';
+                    if (value == nerd.im) li += '<span class="icon-font pad-right">c</span>';
+                    if (value == nerd.email) li += '<span class="icon-font pad-right">@</span>';
                     if (value == nerd.hours) li += '<span class="icon-font pad-right">P</span>';
+                    if (value == nerd.linkedin) li += '<span class="icon-font pad-right">l</span>View Profile</a></li>';
+                    if (value == nerd.skype) li += '<span class="icon-font pad-right">s</span>';
+                    if (value == nerd.twitter) li += '<span class="icon-font pad-right">t</span>View Feed</a></li>';
+                    if (value == nerd.website) li += '<span class="icon-font pad-right">K</span>Go to site</a></li>';
+                    if (value == nerd.skills) li += '<span class="icon-font pad-right">_</span>';
                     
                     // finish
-                    li += value+'</a></li>';
+                    if(value != nerd.website && value != nerd.linkedin && value != nerd.twitter) li += value+'</a></li>';
                     
                     nerdInfo += li;
                 
