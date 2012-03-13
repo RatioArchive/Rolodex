@@ -33,7 +33,7 @@
 				<div data-role="header" data-theme="c">
 					<a id="nerd-list-refresh" data-role="button" href="#"><span class="icon-font pad-right">V</span>Refresh</a>
                     <h1>&nbsp;</h1>
-                    <a class="ui-btn-right" href="#add-nerd" data-transition="slidedown"><span class="icon-font pad-right">U</span>Add Nerd</a>
+                    <a class="ui-btn-right" href="#add-nerd" data-transition="slidedown"><span class="icon-font pad-right">U</span>Add</a>
 				</div><!-- /header -->
 				
 				<div data-role="content">	
@@ -58,8 +58,8 @@
 					</ul>	
 				</div><!-- /content -->
                 
-                <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-inline="true" data-role="button" data-theme="c" class="center"><span class="icon-font pad-right">+</span>Add</a>
-	
+                <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="center"><span class="icon-font pad-right">+</span>Add Something</a>
+	            <br><br>
 		</div><!-- /page -->
         
         <div data-role="page" id="add-nerd">
@@ -90,8 +90,8 @@
 				</div><!-- /header -->
 				
 				<div data-role="content">
-                    <p class="center"><span class="icon-font pad-right">W</span>Choose available attribute.</p>
-                    <br>
+                    <!-- <p class="center"><span class="icon-font pad-right">W</span>Choose available attribute.</p>
+                    <br> -->
                     
                     <label for="nerd-meta-key" class="select">What about them:</label>
                     <select name="nerd-meta-key" id="nerd-meta-key">
@@ -101,13 +101,13 @@
                        <option value="hours">Work Hours</option>
                     </select>
                     
-                    <br><br>
+                    <br>
                     
                     <label for="nerd-meta-value">And that is:</label>
                     <input type="text" name="nerd-meta-value" id="nerd-meta-value" value=""/>
                     
                     <br><br>
-                    <a id="add-to-nerd-btn" data-inline="true" data-role="button" data-theme="a" class="right"><span class="icon-font pad-right">.</span>Ready</a>
+                    <a id="add-to-nerd-btn" data-inline="true" data-role="button" data-theme="a" class="right"><span class="icon-font pad-right">.</span>Add</a>
 				</div><!-- /content -->
 	
 		</div><!-- /page -->

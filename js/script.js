@@ -15,7 +15,8 @@ $(document).ready(function() {
         addToNerd(
             $('#nerd').attr('name'),
             $('#nerd-meta-key').val(), 
-            $('#nerd-meta-value').val()
+            $('#nerd-meta-value').val(),
+            $('#nerd').attr('data-id')
         );
     });
     

@@ -73,10 +73,10 @@ var serveMongo = function(req, res) {
         if(req.url.indexOf('add-to-nerd') > 0) {
             var values = req.url.substring(req.url.indexOf('?') + 1, req.url.length);
             values = values.split("&");
-            console.log(values[0]);
             nerd.name = values[0];
             nerd.key = values[1];
             nerd.value = values[2];
+            nerd.id = values[3];
         } 
         else {
             nerd.name = unescape(req.url.substring(req.url.indexOf('?') + 1, req.url.length)); 
@@ -122,20 +122,37 @@ var serveMongo = function(req, res) {
     }
     
     else if (req.url == '/add-to-nerd') {
-        //extract 3 values
         console.log('adding ' + nerd.key + ' to ' + nerd.name);
-        nerds.update({
-            name: nerd.name
-        }, {
-            $set : {
-                nerd.key : nerd.value   
-            }
-        }, function(err, result) {
-            if (err) throw err;
-            if (result) console.log('Nerd updated');
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-            res.end(JSON.stringify(result));
-        });
+        var meta = makeKeyValuePairFromStrings(nerd.key,nerd.value);
+        nerds.updateById(
+            nerd.id.toString(),
+            { $set : meta }
+        );
     }
 
 };
+
+function makeKeyValuePairFromStrings(key,value) {
+    var pair;
+    switch(key) {
+        case "name":
+            pair = { name : value };
+            break;
+        case "email":
+            pair = { email : value };
+            break;
+        case "hours":
+            pair = { hours : value };
+            break;
+        case "role":
+            pair = { role : value };
+            break;
+        case "im":
+            pair = { im : value };
+            break;
+        case "url":
+            pair = { url : value };
+            break;
+    }
+    return pair;
+}

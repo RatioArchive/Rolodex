@@ -9,25 +9,32 @@ function nerd(name) {
             var nerd = data[0];
             var nerdInfo = '';
             
-            $('#nerd').attr('name',nerd.name).find('h1').text(nerd.name).prepend('<span class="icon-font pad-right">U</span>');
+            $('#nerd').attr({'data-id':nerd._id,'name':nerd.name}).find('h1').text(nerd.name).prepend('<span class="icon-font pad-right">U</span>');
             $('#nerd-pic').html('<img src="http://placehold.it/250x250&text='+nerd.name+'">');
             
             // nerd data list items //
-            if (nerd.role) {
-                nerdInfo +=
-                    '<li>' +
-                        '<a href="#"><span class="icon-font pad-right">Q</span>'+nerd.role+'</a>' +
-                    '</li>'   
-                ;
-            }
-            
-            if (nerd.email) {
-                 nerdInfo +=
-                    '<li>' +
-                        '<a href="mailto:'+nerd.email+'"><span class="icon-font pad-right">@</span>'+nerd.email+'</a>' +
-                    '</li>'    
-                ;  
-            }
+            $.each(nerd, function(key, value) {
+                
+                if(value != nerd._id && value != nerd.name) {
+                
+                    // assemble li element
+                    var li = '<li><a href="';
+                    
+                    if (value == nerd.email) li += 'mailto:'+value+'"><span class="icon-font pad-right">@</span>';
+                    else li += '#">';
+                    
+                    // inject custom icon
+                    if (value == nerd.role) li += '<span class="icon-font pad-right">Q</span>';
+                    if (value == nerd.im) li += '<span class="icon-font pad-right">d</span>';
+                    if (value == nerd.hours) li += '<span class="icon-font pad-right">P</span>';
+                    
+                    // finish
+                    li += value+'</a></li>';
+                    
+                    nerdInfo += li;
+                
+                }
+            });
             
             $('#nerd-info').html(nerdInfo).listview('refresh');       // refresh the list skin and search component
             
