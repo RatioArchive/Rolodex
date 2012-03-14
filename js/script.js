@@ -11,6 +11,10 @@ $(document).ready(function() {
         newNerd($('#new-nerd-name').val());
     });
     
+    $('#new-nerd-meta-btn').on('tap', function(e) {
+        $('#nerd-meta-value').val(''); 
+    });
+    
     $('#add-to-nerd-btn').on('tap', function() {
         $.mobile.showPageLoadingMsg();
         addToNerd(
