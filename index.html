@@ -18,28 +18,23 @@
 		<link rel="apple-touch-startup-image" sizes="640x960" href="ios/splash-screen-640x960.png" />
 
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile.structure-1.0.1.min.css" />
 		<link rel="stylesheet" href="custom.css" />
 		
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-		<script src="js/prefixfree.min.js"></script>
+		<script src="js/plugins/prefixfree.min.js"></script>
 		
 	</head>
 	<body>
     
 		<div data-role="page" id="home">
 		
-				<div data-role="header" data-theme="c">
-					<!-- <a id="nerd-list-refresh" data-role="button" href="#"><span class="icon-font pad-right">V</span>Refresh</a> -->
-                    <h1>&nbsp;</h1>
-                    <a class="ui-btn-right" href="#add-nerd" data-transition="slidedown"><span class="icon-font pad-right">U</span>Add</a>
-				</div><!-- /header -->
-				
 				<div data-role="content">	
 					<ul id="nerd-list" data-role="listview" data-filter="true">
 						
-					</ul>	
+					</ul>
+                    
+                    <a id="new-nerd-btn" class="extruded lots-of-space center" href="#add-nerd" data-inline="true" data-role="button" data-transition="slidedown"><span class="icon-font pad-right">U</span>Add</a>
 				</div><!-- /content -->
 	
 		</div><!-- /page -->
@@ -47,30 +42,31 @@
         <div data-role="page" id="nerd">
     	
 				<div data-role="header" data-theme="c">
-                    <a data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
+                    <a class="extruded" data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
 					<h1 id="name"></h1>
                     <a style="display:none;" id="nerd-refresh" data-role="button" href="#"><span class="icon-font pad-right">V</span>Refresh</a>
 				</div><!-- /header -->
 				
 				<div data-role="content">
-                    <div id="nerd-pic" class="center margin-bottom-ten"></div>
+                    <div id="nerd-pic" class="center"></div>
 					<ul id="nerd-info" data-role="listview">
 						
-					</ul>	
+					</ul>
+                    
+                    <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">+</span>Add or Update Something</a>
+                
 				</div><!-- /content -->
                 
-                <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="center"><span class="icon-font pad-right">+</span>Add or Update Something</a>
-	            <br><br>
 		</div><!-- /page -->
         
         <div data-role="page" id="add-nerd">
         
 				<div data-role="header" data-theme="c">
-                    <a id="add-nerd-back" data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
-					<h1 id="name">&nbsp;</h1>
+                    <a id="add-nerd-back" class="extruded" data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
+					<h1 id="name">Add A New Employee</h1>
 				</div><!-- /header -->
 				
-				<div data-role="content">
+				<div data-role="content" class="noscroll">
                     <p class="center"><span class="icon-font pad-right">W</span>All that's required is a <b>full name</b>.</p>
                     <br>
                     
@@ -78,7 +74,7 @@
                     <input type="text" name="new-nerd-name" id="new-nerd-name" value="" placeholder="What shall we call them?"/>
                     
                     <br><br>
-                    <a id="new-nerd-btn" data-inline="true" data-role="button" data-theme="a" class="right"><span class="icon-font pad-right">.</span>Ready</a>
+                    <a id="new-nerd-btn" data-inline="true" data-role="button" class="extruded right"><span class="icon-font pad-right">.</span>Add em</a>
 				</div><!-- /content -->
 	
 		</div><!-- /page -->
@@ -86,24 +82,32 @@
         <div data-role="page" id="add-nerd-meta">
         
     			<div data-role="header" data-theme="c">
-                    <a id="add-nerd-meta-back" data-rel="back"><span class="icon-font pad-right">;</span>Back</a>
-					<h1 id="name">&nbsp;</h1>
+                    <a class="extruded" id="add-nerd-meta-back" data-rel="back"><span class="icon-font pad-right">;</span>Back</a>
+					<h1 id="name">Add or Update</h1>
 				</div><!-- /header -->
 				
-				<div data-role="content">
+				<div data-role="content" class="noscroll">
                     <!-- <p class="center"><span class="icon-font pad-right">W</span>Choose available attribute.</p>
                     <br> -->
                     
-                    <label for="nerd-meta-key" class="select">What about them:</label>
+                    <label for="nerd-meta-key" class="select">What about:</label>
                     <select name="nerd-meta-key" id="nerd-meta-key">
                         <option value="name">Name</option>
                         <option value="email">Email</option>
+                        <option value="phone">Phone Number</option>
+                        <option value="city">City</option>
+                        <option value="school">College</option>
+                        <option value="degree">Degrees</option>
                         <option value="role">Role</option>
                         <option value="im">Instant Messenger</option>
                         <option value="skype">Skype</option>
                         <option value="hours">Work Hours</option>
                         <option value="skills">Skills</option>
+                        <option value="likes">Things you love</option>
+                        <option value="movie">Favorite Movie</option>
                         <option value="linkedin">Linked In</option>
+                        <option value="google">Google+</option>
+                        <option value="facebook">Facebook</option>
                         <option value="twitter">Twitter</option>
                         <option value="website">Website Url</option>
                         <option value="image">Image Url</option>
@@ -115,7 +119,7 @@
                     <input type="text" name="nerd-meta-value" id="nerd-meta-value" value=""/>
                     
                     <br><br>
-                    <a id="add-to-nerd-btn" data-inline="true" data-role="button" data-theme="a" class="right"><span class="icon-font pad-right">.</span>Add</a>
+                    <a id="add-to-nerd-btn" data-inline="true" data-role="button" class="extruded right"><span class="icon-font pad-right">.</span>Go</a>
 				</div><!-- /content -->
 	
 		</div><!-- /page -->
@@ -125,7 +129,10 @@
         <script src="js/nerd-names.js"></script>
         <script src="js/new-nerd.js"></script>
         <script src="js/nerd-meta.js"></script>
-        <script src="js/jquery.transit.js"></script>
+        
+        <script src="js/plugins/scrollview.js"></script>
+        <script src="js/plugins//jquery.mobile.scrollview.js"></script>
+        <script src="http://redone.org/_scrollview/include/jquery.easing.1.3.js"></script>
 		
 	</body>
 </html>

@@ -3,6 +3,12 @@
 /* use this font to have scaleable vector icons that you can change styles with css. 
 reference for character mapping here: http://www.justbenicestudio.com/studio/websymbols/ */
 
+body {
+    background-image:url(img/ratio-loading.gif);
+    background-repeat:no-repeat;
+    background-position:center center;
+}
+
 @font-face{ 
 	font-family: 'WebSymbolsRegular';
     src: url('img/fonts/websymbols-regular-webfont.eot');
@@ -29,6 +35,7 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 
 .pad-right { padding-right:10px; }
 .margin-bottom-ten { margin-bottom:10px; }
+.lots-of-space { margin:70px auto 90px auto; }
 
 .icon-only > .ui-btn-inner {
 	height:15px;
@@ -37,25 +44,47 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 
 .ui-btn-taller { padding:30px 0 ; }
 
-.ui-page { transform:translateZ(0); }
+.ui-page { transform: translateZ(0); }
+.ui-content { padding:0; } 
+#add-nerd .ui-content, #add-nerd-meta .ui-content { padding:15px; }
+.ui-content .ui-listview, .ui-listview-filter { margin:0; }
+.ui-listview { background:white; }
 .ui-icon-loading { background:url(img/ratio-loading.gif) no-repeat center center; background-size:100% auto; opacity:1 !important; }
-.ui-loader { border-radius:50%; height:80px !important; width:70px !important; padding-top:30px; margin-left:-70px !important; margin-top:-75px !important; }
-.spin { transform:rotate(0deg) !important; animation-name:none; width:70px !important; height:30px !important; }
+.ui-loader { 
+    border-radius:50%; 
+    height:50px !important; 
+    width:32px !important; 
+    padding-top:27px; 
+    margin-left:-50px !important; 
+    margin-top:-75px !important; 
+    background:#ccc;
+    border:1px solid #999;
+}
+.ui-loader > h1 { display:none; }
+.spin { animation-name:none; width:70px !important; height:30px !important; position:relative !important; left:-18px; }
 .ui-btn-corner-all { border-radius:0 !important; }
 .ui-btn-up-c, .ui-btn-hover-c { background:none; }
 .ui-btn-down-c { border-top-color: #ccc !important; }
-.ui-btn-active, .ui-btn-active a { color:#111 !important; text-shadow:none; border-top-color:#ccc !important; }
+.ui-btn-active, .ui-btn-active a, .ui-link, .ui-link:visited { color:#111 !important; text-shadow:none; border-top-color:#ccc !important; }
+.extruded .ui-link { color:#666 !important; }
 .ui-btn-up-c a.ui-link-inherit { color:#333; }
 
 #nerd img {
     width:250px;
     max-height:500px;
+    margin-top:5px;
 }
 
+#nerd .ui-btn .ui-icon {  }
+
 #new-nerd-meta-btn {
-    margin-top:50px;
     display:block;
     width:285px;
+}
+
+#new-nerd-btn {
+    display:inherit;
+    width:120px;
 }
 
 h1#name {
@@ -70,4 +99,23 @@ h1#name {
     display:inline-block;
     text-align:center;
     color:#999;
+}
+
+.extruded { 
+    width: auto;
+    height: auto;
+    background: #FFF;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.30);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.18), inset 0 -3px 0 rgba(0,0,0,0.15) !important;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+ 
+.extruded.ui-btn-down-c:active, .ui-bar-c .extruded.ui-btn-down-c:active { 
+    border-top: 1px solid rgba(0,0,0,0.75);
+    box-shadow: 0 2px 1px rgba(255,255,255,0.50), inset 0 1px 4px rgba(0,0,0,0.35) !important;
+    cursor: pointer !important;
+    transition: all 0.07s ease-in-out;
 }

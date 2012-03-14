@@ -123,7 +123,9 @@ var serveMongo = function(req, res) {
     
     else if (req.url == '/add-to-nerd') {
         console.log('adding ' + nerd.key + ' to ' + nerd.name);
-        var meta = makeKeyValuePairFromStrings(nerd.key,nerd.value);
+        if(nerd.key != "image" && nerd.key != "website" && nerd.key != "linkedin" && nerd.key != "twitter") nerd.value = unescape(nerd.value);
+        var meta = {};
+        meta[nerd.key] = nerd.value;
         nerds.updateById(
             nerd.id.toString(),
             { $set : meta },
@@ -136,44 +138,3 @@ var serveMongo = function(req, res) {
     }
 
 };
-
-function makeKeyValuePairFromStrings(key,value) {
-    var pair;
-    if(key != "image" && key != "website" && key != "linkedin" && key != "twitter") value = unescape(value);
-    switch(key) {
-        case "name":
-            pair = { name : value };
-            break;
-        case "email":
-            pair = { email : value };
-            break;
-        case "hours":
-            pair = { hours : value };
-            break;
-        case "role":
-            pair = { role : value };
-            break;
-        case "im":
-            pair = { im : value };
-            break;
-        case "image":
-            pair = { image : value };
-            break;
-        case "website":
-            pair = { website : value };
-            break;
-        case "linkedin":
-            pair = { linkedin : value };
-            break;
-        case "twitter":
-            pair = { twitter : value };
-            break;
-        case "skills":
-            pair = { skills : value };
-            break;
-        case "skype":
-            pair = { skype : value };
-            break;
-    }
-    return pair;
-}

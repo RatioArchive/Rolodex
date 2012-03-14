@@ -25,12 +25,12 @@ $(document).ready(function() {
         );
     });
     
-    $('#nerd-list').on('tap','a', function() {
+    $('#nerd-list').on('click','a', function() {
+        $.mobile.showPageLoadingMsg();
         nerd($(this).attr('nerd'));
     });
     
     $('#nerd-refresh').on('tap', function() {
-        console.log($(this).attr('nerd'));
         nerd($('#nerd').attr('name')); 
     });
     

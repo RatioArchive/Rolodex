@@ -24,7 +24,13 @@ function nerd(name) {
                     
                     // put in url
                     if      (value == nerd.email) li += 'mailto:'+value+'">';
-                    else if (value == nerd.linkedin || value == nerd.twitter || value == nerd.website) li += ''+value+'">';
+                    else if (value == nerd.phone) li += 'tel:'+value+'">';
+                    else if (value == nerd.linkedin || 
+                             value == nerd.twitter || 
+                             value == nerd.website || 
+                             value == nerd.google || 
+                             value == nerd.facebook
+                    )       li += ''+value+'">';
                     else    li += '#">';
                     
                     // inject custom icon
@@ -37,9 +43,22 @@ function nerd(name) {
                     if (value == nerd.twitter) li += '<span class="icon-font pad-right">t</span>View Feed</a></li>';
                     if (value == nerd.website) li += '<span class="icon-font pad-right">K</span>Go to site</a></li>';
                     if (value == nerd.skills) li += '<span class="icon-font pad-right">_</span>';
+                    if (value == nerd.phone) li += '<span class="icon-font pad-right">u</span>';
+                    if (value == nerd.city) li += '<span class="icon-font pad-right">?</span>';
+                    if (value == nerd.school) li += '<span class="icon-font pad-right">Z</span>';
+                    if (value == nerd.degree) li += '<span class="icon-font pad-right">z</span>';
+                    if (value == nerd.likes) li += '<span class="icon-font pad-right">N</span>';
+                    if (value == nerd.movie) li += '<span class="icon-font pad-right">M</span>';
+                    if (value == nerd.google) li += '<span class="icon-font pad-right">g</span>View Profile</a></li>';
+                    if (value == nerd.facebook) li += '<span class="icon-font pad-right">f</span>View Profile</a></li>';
                     
                     // finish
-                    if(value != nerd.website && value != nerd.linkedin && value != nerd.twitter) li += value+'</a></li>';
+                    if( value != nerd.website && 
+                        value != nerd.linkedin && 
+                        value != nerd.twitter &&
+                        value != nerd.google &&
+                        value != nerd.facebook
+                    ) li += value+'</a></li>';
                     
                     nerdInfo += li;
                 
