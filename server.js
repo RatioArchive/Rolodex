@@ -66,6 +66,7 @@ var serveStaticFile = function(request, response) {
 // SERVICES //
 var serveMongo = function(req, res) {
     var nerd = [];
+    var oldmeta = {};
 
     console.log('data request: ' + req.url);
 
@@ -78,6 +79,16 @@ var serveMongo = function(req, res) {
             nerd.value = values[2];
             nerd.id = values[3];
         } 
+        else if(req.url.indexOf('remove-from-nerd') > 0) {
+            var values = req.url.substring(req.url.indexOf('?') + 1, req.url.length);
+            values = values.split("&");
+            nerd.id = values[0];
+            // iterate over the rest, push into oldmeta object
+            for (var m = 1; m < values.length; m++) {
+                var key = values[m];
+                 oldmeta[key] = "";  
+            }
+        }
         else {
             nerd.name = unescape(req.url.substring(req.url.indexOf('?') + 1, req.url.length)); 
         }
@@ -129,6 +140,18 @@ var serveMongo = function(req, res) {
         nerds.updateById(
             nerd.id.toString(),
             { $set : meta },
+        function(err, result) {
+            if (err) throw err;
+            if (result) console.log('Nerd added!');
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.end(JSON.stringify(result));
+        });
+    }
+    
+    else if (req.url == '/remove-from-nerd') {
+        console.log('removing stuff from a nerd');
+        
+        nerds.updateById( nerd.id.toString(), { $set : oldmeta },
         function(err, result) {
             if (err) throw err;
             if (result) console.log('Nerd added!');

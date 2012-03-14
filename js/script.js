@@ -3,14 +3,10 @@ $(document).delegate('#home', 'pagebeforecreate', function() {
     nerdList();     // js/nerd-names.js
 });
 
-$(document).delegate('#nerd', 'pageremove', function() {
-    console.log('page removed');
-    nerd($(this).attr('nerd'));     // js/nerd.js
-});
-
+// Document Ready Stuffs //
 $(document).ready(function() {
     
-    $('#new-nerd-btn').on('tap', function() {
+    $('#add-nerd-btn').on('tap', function() {
         $.mobile.showPageLoadingMsg();
         newNerd($('#new-nerd-name').val());
     });
@@ -25,6 +21,19 @@ $(document).ready(function() {
         );
     });
     
+    $('#remove-from-nerd-btn').on('tap', function() {
+        $.mobile.showPageLoadingMsg();
+        
+        var metaToRemove = '';
+        $.each( $('#meta-to-remove-checklist').find('input[type="checkbox"]:checked'), function() {
+            metaToRemove += $(this).attr('id') + '&';
+        });
+        
+        metaToRemove = metaToRemove.substring(0,metaToRemove.length-1); // remove hanging &
+        console.log(metaToRemove);
+        removeFromNerd($('#nerd').attr('data-id'), metaToRemove);
+    });
+    
     $('#nerd-list').on('click','a', function() {
         $.mobile.showPageLoadingMsg();
         nerd($(this).attr('nerd'));
@@ -32,6 +41,16 @@ $(document).ready(function() {
     
     $('#nerd-refresh').on('tap', function() {
         nerd($('#nerd').attr('name')); 
+    });
+    
+    $('#remove-meta-btn').on('tap', function() {
+        var metahtml = '';
+        $.each( $('#nerd-info li'), function() {
+            var meta = $(this).attr('nerd-meta');
+            metahtml += '<input type="checkbox" name="'+meta+'" id="'+meta+'" /><label for="'+meta+'">'+meta+'</label>';
+        });
+        $('#meta-to-remove-checklist').html(metahtml).trigger('create');
+        $('#meta-to-remove-checklist').controlgroup();
     });
     
     /* $('#nerd-list-refresh').on('tap', function() {

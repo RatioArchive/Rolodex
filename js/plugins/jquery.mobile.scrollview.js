@@ -13,7 +13,7 @@ jQuery.widget( "mobile.scrollview", jQuery.mobile.widget, {
 	
 		scrollDuration:    2000,  // Duration of the scrolling animation in msecs.
 		overshootDuration: 600,   // Duration of the overshoot animation in msecs.
-		snapbackDuration:  300,   // Duration of the snapback animation in msecs.
+		snapbackDuration:  200,   // Duration of the snapback animation in msecs.
 	
 		moveThreshold:     10,   // User must move this many pixels in any direction to trigger a scroll.
 		moveIntervalThreshold:     150,   // Time between mousemoves must not exceed this threshold.

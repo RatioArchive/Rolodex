@@ -46,7 +46,7 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 
 .ui-page { transform: translateZ(0); }
 .ui-content { padding:0; } 
-#add-nerd .ui-content, #add-nerd-meta .ui-content { padding:15px; }
+#add-nerd .ui-content, #add-nerd-meta .ui-content, #remove-nerd-meta .ui-content { padding:15px; }
 .ui-content .ui-listview, .ui-listview-filter { margin:0; }
 .ui-listview { background:white; }
 .ui-icon-loading { background:url(img/ratio-loading.gif) no-repeat center center; background-size:100% auto; opacity:1 !important; }
@@ -80,6 +80,7 @@ img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center cen
 #new-nerd-meta-btn {
     display:block;
     width:285px;
+    margin-bottom:0px;
 }
 
 #new-nerd-btn {
@@ -100,6 +101,8 @@ h1#name {
     text-align:center;
     color:#999;
 }
+
+#remove-meta-btn { margin-top:20px; display:block; width:285px; }
 
 .extruded { 
     width: auto;

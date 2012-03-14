@@ -17,10 +17,10 @@ function nerd(name) {
             // nerd data list items //
             $.each(nerd, function(key, value) {
                 
-                if(value != nerd._id && value != nerd.name && value != nerd.image) {
+                if(value != "" && value != nerd._id && value != nerd.name && value != nerd.image) {
                     
                     // assemble li element
-                    var li = '<li><a href="';
+                    var li = '<li nerd-meta="'+key+'"><a href="';
                     
                     // put in url
                     if      (value == nerd.email) li += 'mailto:'+value+'">';
@@ -66,7 +66,7 @@ function nerd(name) {
             });
             
             $('#nerd-info').html(nerdInfo).listview('refresh');       // refresh the list skin and search component
-            
+            $('#nerd').find('.ui-scrollview-view').css('-webkit-transform','matrix(1,0,0,1,0,0)'); // scroll it to top
         }
     }); 
     

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes">
-		<title>Ratio Employees</title>
+		<title>Ratio Rolodex v0.9</title>
 		
 		<link rel="apple-touch-icon" href="ios/apple-touch-icon.png" />
 		<link rel="apple-touch-icon" href="ios/apple-touch-icon-precomposed.png" />
@@ -54,6 +54,7 @@
 					</ul>
                     
                     <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">+</span>Add or Update Something</a>
+                    <a id="remove-meta-btn" href="#remove-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">-</span>Remove Something</a>
                 
 				</div><!-- /content -->
                 
@@ -74,7 +75,7 @@
                     <input type="text" name="new-nerd-name" id="new-nerd-name" value="" placeholder="What shall we call them?"/>
                     
                     <br><br>
-                    <a id="new-nerd-btn" data-inline="true" data-role="button" class="extruded right"><span class="icon-font pad-right">.</span>Add em</a>
+                    <a id="add-nerd-btn" data-inline="true" data-role="button" class="extruded right"><span class="icon-font pad-right">.</span>Add em</a>
 				</div><!-- /content -->
 	
 		</div><!-- /page -->
@@ -124,11 +125,36 @@
 	
 		</div><!-- /page -->
         
+        <div data-role="page" id="remove-nerd-meta">
+        
+        		<div data-role="header" data-theme="c">
+                    <a class="extruded" id="remove-nerd-meta-back" data-rel="back"><span class="icon-font pad-right">;</span>Back</a>
+					<h1 id="name">Remove</h1>
+				</div><!-- /header -->
+				
+				<div data-role="content">
+                    <br>
+                        <p class="center"><span class="icon-font pad-right">/</span>Select as many as you want to remove.</p>
+                    <br>
+                    
+                    <div data-role="fieldcontain">
+                        <fieldset id="meta-to-remove-checklist" data-role="controlgroup">
+                           
+                        </fieldset>
+                    </div>
+                    
+                    <br><br>
+                    <a id="remove-from-nerd-btn" data-inline="true" data-role="button" class="extruded right"><span class="icon-font pad-right">W</span>Delete</a>
+				</div><!-- /content -->
+	
+		</div><!-- /page -->
+        
         <script src="js/script.js"></script>
         <script src="js/nerd.js"></script>
         <script src="js/nerd-names.js"></script>
         <script src="js/new-nerd.js"></script>
         <script src="js/nerd-meta.js"></script>
+        <script src="js/nerd-remove-meta.js"></script>
         
         <script src="js/plugins/scrollview.js"></script>
         <script src="js/plugins//jquery.mobile.scrollview.js"></script>
