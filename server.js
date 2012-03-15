@@ -96,9 +96,9 @@ var serveMongo = function(req, res) {
         req.url = req.url.substring(0, req.url.indexOf('?'));
     }
 
-    if (req.url == '/nerd-names') {
+    if (req.url == '/nerd-list') {
         nerds.find({}, {
-            'name': 1
+             name : 1 , role : 1 , image : 1
         }).sort({
             name: 1
         }).toArray(function(err, items) {

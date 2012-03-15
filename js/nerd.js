@@ -20,18 +20,18 @@ function nerd(name) {
                 if(value != "" && value != nerd._id && value != nerd.name && value != nerd.image) {
                     
                     // assemble li element
-                    var li = '<li nerd-meta="'+key+'"><a href="';
+                    var li = '';
                     
                     // put in url
-                    if      (value == nerd.email) li += 'mailto:'+value+'">';
-                    else if (value == nerd.phone) li += 'tel:'+value+'">';
+                    if      (value == nerd.email) li += '<li data-icon="false" item-role="link" nerd-meta="'+key+'"><a href="mailto:'+value+'">';
+                    else if (value == nerd.phone) li += '<li data-icon="false" item-role="link" nerd-meta="'+key+'"><a href="tel:'+value+'">';
                     else if (value == nerd.linkedin || 
                              value == nerd.twitter || 
                              value == nerd.website || 
                              value == nerd.google || 
                              value == nerd.facebook
-                    )       li += ''+value+'">';
-                    else    li += '#">';
+                    )       li += '<li data-icon="false" item-role="link" nerd-meta="'+key+'"><a href="'+value+'">';
+                    else    li += '<li data-icon="false" nerd-meta="'+key+'"><a href="#">';
                     
                     // inject custom icon
                     if (value == nerd.role) li += '<span class="icon-font pad-right">R</span>';

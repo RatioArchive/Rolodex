@@ -1,124 +1,198 @@
 @charset "UTF-8";
-
 /* use this font to have scaleable vector icons that you can change styles with css. 
 reference for character mapping here: http://www.justbenicestudio.com/studio/websymbols/ */
 
 body {
-    background-image:url(img/ratio-loading.gif);
-    background-repeat:no-repeat;
-    background-position:center center;
+    background-image: url(img/ratio-loading.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
 }
-
-@font-face{ 
-	font-family: 'WebSymbolsRegular';
+@font-face {
+    font-family: 'WebSymbolsRegular';
     src: url('img/fonts/websymbols-regular-webfont.eot');
-    src: url('img/fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('img/fonts/websymbols-regular-webfont.woff') format('woff'),
-         url('img/fonts/websymbols-regular-webfont.ttf') format('truetype'),
-         url('img/fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    src: url('img/fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),  url('img/fonts/websymbols-regular-webfont.woff') format('woff'),  url('img/fonts/websymbols-regular-webfont.ttf') format('truetype'),  url('img/fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
-
 .icon-font {
-	font-family: 'WebSymbolsRegular';
+    font-family: 'WebSymbolsRegular';
 }
-
 /* prevent images from extending beyond their container or mobile viewport */
-img { max-width:100%; background:url(img/ratio-loading.gif) no-repeat center center; background-size:50% auto; }
-
+img {
+    max-width: 100%;
+    background: url(img/ratio-loading.gif) no-repeat center center;
+    background-size: 50% auto;
+}
+.ui-input-search {
+    background:white !important;    
+}
 .center {
-	text-align:center;
-	margin:0 auto;	
+    text-align: center;
+    margin: 0 auto;
 }
-.right { float:right; }
-
-.pad-right { padding-right:10px; }
-.margin-bottom-ten { margin-bottom:10px; }
-.lots-of-space { margin:70px auto 90px auto; }
-
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.pad-right {
+    padding-right: 10px;
+}
+.margin-bottom-ten {
+    margin-bottom: 10px;
+}
+.lots-of-space {
+    margin: 70px auto 90px auto;
+}
 .icon-only > .ui-btn-inner {
-	height:15px;
-	padding-left:18px !important;	
+    height: 15px;
+    padding-left: 18px !important;
 }
-
-.ui-btn-taller { padding:30px 0 ; }
-
-.ui-page { transform: translateZ(0); }
-.ui-content { padding:0; } 
-#add-nerd .ui-content, #add-nerd-meta .ui-content, #remove-nerd-meta .ui-content { padding:15px; }
-.ui-content .ui-listview, .ui-listview-filter { margin:0; }
-.ui-listview { background:white; }
-.ui-icon-loading { background:url(img/ratio-loading.gif) no-repeat center center; background-size:100% auto; opacity:1 !important; }
-.ui-loader { 
-    border-radius:50%; 
-    height:50px !important; 
-    width:32px !important; 
-    padding-top:27px; 
-    margin-left:-50px !important; 
-    margin-top:-75px !important; 
-    background:#ccc;
-    border:1px solid #999;
+.ui-btn-taller {
+    padding: 30px 0;
 }
-.ui-loader > h1 { display:none; }
-.spin { animation-name:none; width:70px !important; height:30px !important; position:relative !important; left:-18px; }
-.ui-btn-corner-all { border-radius:0 !important; }
-.ui-btn-up-c, .ui-btn-hover-c { background:none; }
-.ui-btn-down-c { border-top-color: #ccc !important; }
-.ui-btn-active, .ui-btn-active a, .ui-link, .ui-link:visited { color:#111 !important; text-shadow:none; border-top-color:#ccc !important; }
-.extruded .ui-link { color:#666 !important; }
-.ui-btn-up-c a.ui-link-inherit { color:#333; }
-
-#nerd img {
-    width:250px;
-    max-height:500px;
-    margin-top:5px;
+.ui-page {
+    transform: translateZ(0);
 }
-
-#nerd .ui-btn .ui-icon {  }
-
-#new-nerd-meta-btn {
-    display:block;
-    width:285px;
-    margin-bottom:0px;
+.ui-content {
+    padding: 0;
 }
-
-#new-nerd-btn {
-    display:inherit;
-    width:120px;
+#add-nerd .ui-content, #add-nerd-meta .ui-content, #remove-nerd-meta .ui-content {
+    padding: 15px;
 }
-
-h1#name {
-    text-shadow:0 1px 0 white, 0 -1px 0 #aaa;
-    font-size:21px;
-    margin-bottom:4px;
-    color:#ccc;
+.ui-content .ui-listview, .ui-listview-filter {
+    margin: 0;
+    background:white;
 }
-
-#nerd-info li span.icon-font {
-    width:20px; 
-    display:inline-block;
-    text-align:center;
+#home .ui-icon-searchfield:after {
+    font-family: "WebSymbolsRegular";
+    content:"L";
+    background:none;
     color:#999;
+    text-shadow:0 1px 0 white;
+}
+.ui-listview {
+    background: white;
+}
+.ui-icon-loading {
+    background: url(img/ratio-loading.gif) no-repeat center center;
+    background-size: 100% auto;
+    opacity: 1 !important;
+}
+.ui-loader {
+    border-radius: 50%;
+    height: 50px !important;
+    width: 32px !important;
+    padding-top: 27px;
+    margin-left: -50px !important;
+    margin-top: -75px !important;
+    background: #ccc;
+    border: 1px solid #999;
+}
+.ui-loader > h1 {
+	display:none;
+}
+.spin {
+	animation-name:none;
+	width:70px !important;
+	height:30px !important;
+	position:relative !important;
+	left:-18px;
+}
+.ui-btn-corner-all {
+	border-radius:0 !important;
+}
+.ui-btn-up-c, .ui-btn-hover-c {
+	background:none;
+}
+.ui-btn-down-c {
+    border-top-color: #ccc !important;
+}
+.ui-btn-active, .ui-btn-active a, .ui-link, .ui-link:visited {
+    color: #111 !important;
+    text-shadow:none;
+    border-top-color:#ccc !important;
+}
+.extruded.ui-link {
+    color: #666 !important;
+}
+.ui-btn-up-c a.ui-link-inherit {
+    color: #333;
+}
+.ui-li-has-icon .ui-btn-inner a.ui-link-inherit {
+    padding-left: 15px !important;
+}
+.ui-listview .ui-li-icon {
+    position: inherit !important;
+    margin-top: 5px;
+}
+.ui-listview img.ui-li-icon {
+    background-image: url(img/ratio-loading.gif) no-repeat center center;
+    background-size:50% auto;
+    width:40px;
+    height:40px;
+}
+#home .ui-listview .ui-btn:after, #nerd .ui-listview .ui-btn[item-role="link"]:after {
+    font-family: "WebSymbolsRegular";
+    content:"]";
+    position:absolute;
+    right:15px;
+    top:50%;
+    margin-top:-6px;
+    font-size:10px;
 }
 
-#remove-meta-btn { margin-top:20px; display:block; width:285px; }
-
-.extruded { 
-    width: auto;
-    height: auto;
-    background: #FFF;
+.user-li-placeholder {
+    padding: 18px 20px 10px 10px;
+}
+#nerd img {
+    background-image: url(img/ratio-loading.gif) no-repeat center center;
+    background-size:50% auto;
+	width: 250px;
+    max-height: 500px;
+    margin-top: 5px;
+}
+ #new-nerd-meta-btn {
+    display: block;
+    width: 285px;
+    margin-bottom: 0;
+}
+#new-nerd-btn {
+    display: inherit;
+    width: 120px;
+}
+h1#name {
+    text-shadow: 0 1px 0 white,  0 -1px 0 #aaa;
+    font-size: 21px;
+    margin-bottom: 4px;
+	color: #ccc;
+}
+#nerd-info li span.icon-font {
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+    color: #999;
+}
+#remove-meta-btn {
+    margin-top: 20px;
+    display: block;
+    width: 285px;
+}
+.extruded {
+	width: auto;
+	height: auto;
+	background: #FFF;
     text-decoration: none;
     border-radius: 3px;
-    border: 1px solid rgba(0,0,0,0.30);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.18), inset 0 -3px 0 rgba(0,0,0,0.15) !important;
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
+	border: 1px solid rgba(0, 0, 0, 0.30);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18),  inset 0 -3px 0 rgba(0, 0, 0, 0.15) !important;
+	cursor: pointer;
+	transition: all 0.1s ease-in-out;
 }
- 
-.extruded.ui-btn-down-c:active, .ui-bar-c .extruded.ui-btn-down-c:active { 
-    border-top: 1px solid rgba(0,0,0,0.75);
-    box-shadow: 0 2px 1px rgba(255,255,255,0.50), inset 0 1px 4px rgba(0,0,0,0.35) !important;
-    cursor: pointer !important;
-    transition: all 0.07s ease-in-out;
+.extruded.ui-btn-down-c:active,  .ui-bar-c.extruded.ui-btn-down-c:active {
+	 border-top: 1px solid rgba(0, 0, 0, 0.75);
+ 	box-shadow: 0 2px 1px rgba(255, 255, 255, 0.50),  inset 0 1px 4px rgba(0, 0, 0, 0.35) !important;
+	cursor: pointer !important;
+	transition: all 0.07s ease-in-out;
 }
