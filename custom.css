@@ -55,6 +55,7 @@ img {
 }
 .ui-page {
     transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
 }
 .ui-content {
     padding: 0;
