@@ -34,6 +34,7 @@ function nerd(name) {
                     else    li += '<li data-icon="false" nerd-meta="'+key+'"><a href="#">';
                     
                     // inject custom icon (needs better css and js so this isnt no clunky)
+                    if (value == nerd.nickname) li += '<span class="icon-font pad-right">T</span>';
                     if (value == nerd.role)     li += '<span class="icon-font pad-right">R</span>';
                     if (value == nerd.im)       li += '<span class="icon-font pad-right">c</span>';
                     if (value == nerd.email)    li += '<span class="icon-font pad-right">@</span>';
