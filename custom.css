@@ -61,11 +61,17 @@ img {
 }
 .loading {
     text-align:center;
-    padding:200px 0;
+    padding:200px 20px 120px 20px;
     font-size:40px;
     color:#eee;
     font-weight:bold;
-    text-shadow:0 -1px 0 #aaa, 0 1px 0 white;
+    font-family:"Sonsie One";
+    text-shadow:0 -1px 0 #ccc, 0 2px 0 white;
+    
+    background-image: url(img/ratio-loading.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:100px auto;
 }
 #add-nerd .ui-content, #add-nerd-meta .ui-content, #remove-nerd-meta .ui-content {
     padding: 15px;

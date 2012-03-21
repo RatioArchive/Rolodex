@@ -1,6 +1,6 @@
 // This lets you make your calls before jquery-mobile does it's ajax calls to display this page //
 $(document).delegate('#home', 'pagebeforecreate', function() {
-    //nerdList();     // js/nerd-names.js
+    nerdList();     // js/nerd-names.js
 });
 
 // Document Ready Stuffs //
