@@ -2,12 +2,6 @@
 /* use this font to have scaleable vector icons that you can change styles with css. 
 reference for character mapping here: http://www.justbenicestudio.com/studio/websymbols/ */
 
-body {
-    background-image: url(img/ratio-loading.gif);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size:150px auto;
-}
 @font-face {
     font-family: 'WebSymbolsRegular';
     src: url('img/fonts/websymbols-regular-webfont.eot');
