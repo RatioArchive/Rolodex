@@ -39,6 +39,9 @@ $(document).ready(function() {
     
     $('#nerd-list').on('click','a', function() {
         nerd($(this).attr('nerd'));
+        $('#nerd').find('h1').html('Loading');
+        $('#nerd-info').empty();
+        $('#nerd-pic').css('background-image','url("http://placehold.it/250x250&text=Loading...")');
     });
     
     $('#nerd-refresh').on('tap', function() {
