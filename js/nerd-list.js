@@ -13,7 +13,6 @@ function nerdList() {
             
             for (var i = 0; i < nerds.length; i++) { // style="left:-'+$(window).width()+'px;"
                   var nerd = nerds[i];
-                  console.log(nerd);
                   
                   dataChunk += '<li style="left:-'+$(window).width()+'px; opacity:0;" data-icon="false">' +
                                     '<a nerd="'+nerd.name+'" href="#nerd">';

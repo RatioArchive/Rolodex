@@ -33,8 +33,7 @@ $(document).ready(function() {
             metaToRemove += $(this).attr('id') + '&';
         });
         
-        metaToRemove = metaToRemove.substring(0,metaToRemove.length-1); // remove hanging &
-        console.log(metaToRemove);
+        metaToRemove = metaToRemove.substring(0,metaToRemove.length-1); // remove hanging & character
         removeFromNerd($('#nerd').attr('data-id'), metaToRemove);
     });
     

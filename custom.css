@@ -143,6 +143,9 @@ img {
     width:40px;
     height:40px;
 }
+#nerd-list {
+    -webkit-overflow-scrolling:touch;    
+}
 #home .ui-listview .ui-btn:after, #nerd .ui-listview .ui-btn[item-role="link"]:after {
     font-family: "WebSymbolsRegular";
     content:"]";
@@ -162,7 +165,6 @@ img {
     background-size:100% auto;
 	width: 250px;
     height: 250px;
-    margin-top: 5px;
 }
  #new-nerd-meta-btn {
     display: block;
