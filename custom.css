@@ -156,11 +156,12 @@ img {
 .user-li-placeholder {
     padding: 18px 20px 10px 10px;
 }
-#nerd img {
-    background-image: url(img/ratio-loading.gif) no-repeat center center;
-    background-size:50% auto;
+#nerd-pic {
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-size:100% auto;
 	width: 250px;
-    max-height: 500px;
+    height: 250px;
     margin-top: 5px;
 }
  #new-nerd-meta-btn {
@@ -188,6 +189,15 @@ h1#name {
     margin-top: 20px;
     display: block;
     width: 285px;
+}
+#nerd-info i {
+    font-style:normal;
+    padding:3px 5px;
+    margin-right:5px;
+    border-radius:5px;
+    display:inline-block;
+    background:#ddd;
+    text-shadow:0 1px 0 white;
 }
 .extruded {
 	width: auto;

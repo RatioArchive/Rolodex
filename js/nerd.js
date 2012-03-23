@@ -11,8 +11,8 @@ function nerd(name) {
             
             $('#nerd').attr({'data-id':nerd._id,'name':nerd.name}).find('h1').text(nerd.name);
             
-            if(nerd.image)  $('#nerd-pic').html('<img src="'+nerd.image+'">');
-            else            $('#nerd-pic').html('<img src="http://placehold.it/250x250&text=THIS+IS+WHERE+YOUR+FACE+WILL+BE">');
+            if(nerd.image)  $('#nerd-pic').css('background-image','url('+nerd.image+')');
+            else            $('#nerd-pic').css('background-image','url("http://placehold.it/250x250&text=THIS+IS+WHERE+YOUR+FACE+WILL+BE")');
             
             // nerd data list items //
             $.each(nerd, function(key, value) {
@@ -53,13 +53,23 @@ function nerd(name) {
                     if (value == nerd.google)   li += '<span class="icon-font pad-right">g</span>View Profile</a></li>';
                     if (value == nerd.facebook) li += '<span class="icon-font pad-right">f</span>View Profile</a></li>';
                     
+                    if( value == nerd.skills ) {
+                        var skillList = value.split(',');
+                        
+                        for (var skill in skillList) {
+                            li += '<i>'+skillList[skill]+'</i>';   
+                        }
+                    }
+                    
                     // finish
                     if( value != nerd.website && 
                         value != nerd.linkedin && 
                         value != nerd.twitter &&
                         value != nerd.google &&
-                        value != nerd.facebook
+                        value != nerd.facebook &&
+                        value != nerd.skills
                     ) li += value+'</a></li>';
+                    
                     
                     nerdInfo += li;
                 

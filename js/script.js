@@ -39,13 +39,7 @@ $(document).ready(function() {
     });
     
     $('#nerd-list').on('click','a', function() {
-        $.mobile.showPageLoadingMsg();
         nerd($(this).attr('nerd'));
-        
-        //$(this).transition({
-        //    perspective: '100px',
-        //    rotateX: '360deg'
-        //});
     });
     
     $('#nerd-refresh').on('tap', function() {

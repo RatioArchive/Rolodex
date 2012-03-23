@@ -112,6 +112,9 @@ var serveMongo = function(req, res) {
         console.log('serving data on nerd ' + nerd.name);
         nerds.find({
             name: nerd.name
+        }).sort({
+            email: 1,
+            role: 2
         }).toArray(function(err, items) {
             if (err) throw err;
 
