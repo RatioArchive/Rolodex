@@ -19,7 +19,7 @@ img[src^=#] {
     background-size: 50% auto;
 }
 #home header {
-    background-color:rgba(56,178,205,0.9);
+    background-color:rgba(56,178,205,1);
     text-align: center;
 }
 #home header > img {
@@ -53,10 +53,6 @@ img[src^=#] {
 }
 .ui-btn-taller {
     padding: 30px 0;
-}
-.ui-page {
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
 }
 .ui-content {
     padding: 0;
@@ -149,9 +145,8 @@ img[src^=#] {
     background-size:50% auto;
     width:40px;
     height:40px;
-}
-#nerd-list {
-    -webkit-overflow-scrolling:touch;    
+    max-width:40px;
+    max-height:40px;
 }
 #home .ui-listview .ui-btn:after, #nerd .ui-listview .ui-btn[item-role="link"]:after {
     font-family: "WebSymbolsRegular";
@@ -183,6 +178,7 @@ img[src^=#] {
     width: 150px;
 }
 h1#name {
+    text-shadow: none;
     font-size: 21px;
     margin-bottom: 4px;
 	color: #ccc;
@@ -211,7 +207,7 @@ h1#name {
     text-shadow:0 1px 0 white;
 }
 .ui-bar-c {
-    background:rgba(56,178,205,0.9);
+    background:rgba(56,178,205,1);
     border:none;
 }
 .extruded {
