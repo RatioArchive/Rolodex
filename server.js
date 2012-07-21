@@ -4,8 +4,8 @@ var http = require('http'),
     mongo = require('mongoskin');
 
 // Database Connection //
-var db = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
-var nerds = db.collection('nerds');
+var db      = mongo.db('mongodb://nerd:dork@staff.mongohq.com:10084/rolodex');
+var nerds   = db.collection('nerds');
 
 // CREATE SERVER //
 http.createServer(function(request, response) {
@@ -18,7 +18,7 @@ http.createServer(function(request, response) {
     }
 
 
-}).listen(process.env.PORT, "0.0.0.0" || 8001);
+}).listen(3030, '127.0.0.1');
 console.log('server running...');
 
 // FILE SERVER //

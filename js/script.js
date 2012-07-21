@@ -5,6 +5,10 @@ $(document).delegate('#home', 'pagebeforecreate', function() {
 
 // Document Ready Stuffs //
 $(document).ready(function() {
+
+    // set jq mobile defaults
+    $.mobile.defaultPageTransition      = 'flow';
+    $.mobile.defaultDialogTransition    = 'none';
     
     $('#add-nerd-btn').on('tap', function() {
         $.mobile.showPageLoadingMsg();
