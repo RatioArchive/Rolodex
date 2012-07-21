@@ -207,7 +207,7 @@ h1#name {
     background:#ddd;
     text-shadow:0 1px 0 white;
 }
-.ui-page:not(#home) .extruded {
+.ui-header .extruded {
     margin-top:3px;
 }
 .ui-bar-c {
