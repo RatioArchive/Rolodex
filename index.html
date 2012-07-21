@@ -20,7 +20,11 @@
 		<div data-role="page" id="home">
 		
 				<div data-role="content">	
-					<ul id="nerd-list" data-role="listview" data-filter="true"></ul>
+                    <header>
+                        <img src="img/ratio.svg">
+                    </header>
+
+					<ul id="nerd-list" data-role="listview"></ul>
                     
                     <a id="new-nerd-btn" class="extruded lots-of-space center" href="#add-nerd" data-inline="true" data-role="button" data-transition="slidedown"><span class="icon-font pad-right">U</span>Add</a>
 
@@ -43,8 +47,8 @@
 						
 					</ul>
                     
-                    <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">+</span>Add or Update Some Shit</a>
-                    <a id="remove-meta-btn" href="#remove-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">-</span>Remove Some Shit</a>
+                    <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">+</span>Add or Update</a>
+                    <a id="remove-meta-btn" href="#remove-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">-</span>Remove Meta</a>
                 
 				</div><!-- /content -->
                 
@@ -145,9 +149,6 @@
         <script src="js/new-nerd.js"></script>
         <script src="js/nerd-meta.js"></script>
         <script src="js/nerd-remove-meta.js"></script>
-        <script src="js/plugins/jquery.transit.min.js"></script>
-        
-        <script src="js/android.js"></script>
 		
 	</body>
 </html>

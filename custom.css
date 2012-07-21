@@ -13,10 +13,17 @@ reference for character mapping here: http://www.justbenicestudio.com/studio/web
     font-family: 'WebSymbolsRegular';
 }
 /* prevent images from extending beyond their container or mobile viewport */
-img {
+img[src^=#] {
     max-width: 100%;
     background: url(img/ratio-loading.gif) no-repeat center center;
     background-size: 50% auto;
+}
+#home header {
+    background-color:rgba(56,178,205,0.9);
+    text-align: center;
+}
+#home header > img {
+    height:50px;
 }
 .ui-input-search {
     background:white !important;    
@@ -176,10 +183,12 @@ img {
     width: 150px;
 }
 h1#name {
-    text-shadow: 0 1px 0 white,  0 -1px 0 #aaa;
     font-size: 21px;
     margin-bottom: 4px;
 	color: #ccc;
+    padding:10px 0 12px 0;
+    margin-top:0;
+    color:black;
 }
 #nerd-info li span.icon-font {
     width: 20px;
@@ -200,6 +209,10 @@ h1#name {
     display:inline-block;
     background:#ddd;
     text-shadow:0 1px 0 white;
+}
+.ui-bar-c {
+    background:rgba(56,178,205,0.9);
+    border:none;
 }
 .extruded {
 	width: auto;

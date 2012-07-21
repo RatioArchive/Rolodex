@@ -30,12 +30,15 @@ var serveStaticFile = function(request, response) {
         var extname = path.extname(filePath);
         var contentType = 'text/html';
         switch (extname) {
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.css':
-            contentType = 'text/css';
-            break;
+            case '.js':
+                contentType = 'text/javascript';
+                break;
+            case '.css':
+                contentType = 'text/css';
+                break;
+            case '.svg':
+                contentType = 'image/svg+xml';
+                break;
         }
 
         console.log('serving ' + filePath + ", content type: " + contentType);
