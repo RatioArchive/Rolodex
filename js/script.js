@@ -1,14 +1,15 @@
 // This lets you make your calls before jquery-mobile does it's ajax calls to display this page //
 $(document).delegate('#home', 'pagebeforecreate', function() {
-    nerdList();     // js/nerd-names.js
+    //nerdList();     // js/nerd-names.js
 });
 
 // Document Ready Stuffs //
 $(document).ready(function() {
 
+    nerdList();
+
     // set jq mobile defaults
     $.mobile.defaultPageTransition      = 'flow';
-    $.mobile.defaultDialogTransition    = 'none';
     
     $('#add-nerd-btn').on('tap', function() {
         $.mobile.showPageLoadingMsg();

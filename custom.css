@@ -38,7 +38,7 @@ img {
     margin-bottom: 10px;
 }
 .lots-of-space {
-    margin: 70px auto 90px auto;
+    margin: 70px auto 40px auto;
 }
 .icon-only > .ui-btn-inner {
     height: 15px;
@@ -171,9 +171,9 @@ img {
     width: 285px;
     margin-bottom: 0;
 }
-#new-nerd-btn {
+#new-nerd-btn, #refresh-list-btn {
     display: inherit;
-    width: 120px;
+    width: 150px;
 }
 h1#name {
     text-shadow: 0 1px 0 white,  0 -1px 0 #aaa;

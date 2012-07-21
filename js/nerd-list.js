@@ -14,7 +14,7 @@ function nerdList() {
             for (var i = 0; i < nerds.length; i++) { // style="left:-'+$(window).width()+'px;"
                   var nerd = nerds[i];
                   
-                  dataChunk += '<li style="left:-'+$(window).width()+'px; opacity:0;" data-icon="false">' +
+                  dataChunk += '<li data-icon="false">' + // style="left:-'+$(window).width()+'px; opacity:0;" 
                                     '<a nerd="'+nerd.name+'" href="#nerd">';
                   if(nerd.image) dataChunk += '<img src="'+nerd.image+'" class="ui-li-icon" />';
                   else dataChunk +=           '<span class="icon-font user-li-placeholder left">U</span>';
@@ -24,11 +24,11 @@ function nerdList() {
                   dataChunk += '</li>';
             }
             
-            $('#nerd-list').html(dataChunk).listview('refresh')
-            .find('li').each(function() {
-                  $(this).transition({ delay: offset, left: '0px', opacity: '1' }, 500, 'snap');
-                  offset += 100;
-            });
+            $('#nerd-list').html(dataChunk).listview('refresh');
+            // .find('li').each(function() {
+            //       $(this).transition({ delay: offset, left: '0px', opacity: '1' }, 500, 'snap');
+            //       offset += 100;
+            // });
             
         }
     }); 
