@@ -144,9 +144,8 @@ img[src^=#] {
     background-image: url(img/ratio-loading.gif) no-repeat center center;
     background-size:50% auto;
     width:40px;
-    height:40px;
-    max-width:40px;
-    max-height:40px;
+    max-width:inherit;
+    max-height:inherit;
 }
 #home .ui-listview .ui-btn:after, #nerd .ui-listview .ui-btn[item-role="link"]:after {
     font-family: "WebSymbolsRegular";
