@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>Ratio Rolodex :: v1.1</title>
+        
+        <link href='http://fonts.googleapis.com/css?family=Sonsie+One' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0-beta.1/jquery.mobile-1.2.0-beta.1.min.css" />
+        <link rel="stylesheet" href="custom.css" />
+        
+        
+	<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0-beta.1/jquery.mobile-1.2.0-beta.1.min.js"></script>
+        <script src="js/plugins/prefixfree.min.js"></script>
+		
+	</head>
+	<body>
+    
+		<div data-role="page" id="home">
+		
+				<div data-role="content">	
+                    <header>
+                        <img src="img/ratio.svg">
+                    </header>
+
+					<ul id="nerd-list" data-role="listview"></ul>
+                    
+                    <a id="new-nerd-btn" class="extruded lots-of-space center" href="#add-nerd" data-inline="true" data-role="button"><span class="icon-font pad-right">U</span>Add</a>
+
+                    <a id="refresh-list-btn" class="extruded lots-of-space center" onclick="nerdList()" data-inline="true" data-role="button"><span class="icon-font pad-right">J</span>Refresh</a>
+				</div><!-- /content -->
+	
+		</div><!-- /page -->
+        
+        <div data-role="page" id="nerd">
+    	
+				<div data-role="header" data-theme="c">
+                    <a class="extruded" data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
+					<h1 id="name"></h1>
+                    <a style="display:none;" id="nerd-refresh" data-role="button" href="#"><span class="icon-font pad-right">V</span>Refresh</a>
+				</div><!-- /header -->
+				
+				<div data-role="content">
+                    <div id="nerd-pic" class="center"></div>
+					<ul id="nerd-info" data-role="listview">
+						
+					</ul>
+                    
+                    <a id="new-nerd-meta-btn" href="#add-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">+</span>Add or Update</a>
+                    <a id="remove-meta-btn" href="#remove-nerd-meta" data-transition="slideup" data-inline="true" data-role="button" data-theme="c" class="extruded lots-of-space center"><span class="icon-font pad-right">-</span>Remove Meta</a>
+                
+				</div><!-- /content -->
+                
+		</div><!-- /page -->
+        
+        <div data-role="page" id="add-nerd">
+        
+				<div data-role="header" data-theme="c">
+                    <a id="add-nerd-back" class="extruded" data-rel="back"><span class="icon-font pad-right"><</span>Back</a>
+					<h1 id="name">Add A New Employee</h1>
+				</div><!-- /header -->
+				
+				<div data-role="content" class="noscroll">
+                    <p class="center"><span class="icon-font pad-right">W</span>All that's required is a <b>full name</b>.</p>
+                    <br>
+                    
+                    <label for="new-nerd-name">Full Name:</label>
+                    <input type="text" name="new-nerd-name" id="new-nerd-name" value="" placeholder="What shall we call them?"/>
+                    
+                    <br><br>
+                    <a id="add-nerd-btn" data-inline="true" data-role="button" class="extruded right"><span class="icon-font pad-right">.</span>Add em</a>
+				</div><!-- /content -->
+	
+		</div><!-- /page -->
+        
+        <div data-role="page" id="add-nerd-meta">
+        
+    			<div data-role="header" data-theme="c">
+                    <a class="extruded" id="add-nerd-meta-back" data-rel="back"><span class="icon-font pad-right">;</span>Back</a>
+					<h1 id="name">Add or Update</h1>
+				</div><!-- /header -->
+				
+				<div data-role="content" class="noscroll">
+                    <!-- <p class="center"><span class="icon-font pad-right">W</span>Choose available attribute.</p>
+                    <br> -->
+                    
+                    <label for="nerd-meta-key" class="select">What about:</label>
+                    <select name="nerd-meta-key" id="nerd-meta-key">
+                        <option value="name">Name</option>
+                        <option value="nickname">Nickname</option>
+                        <option value="email"><span class="icon-font pad-right">@</span>Email</option>
+                        <option value="phone">Phone Number</option>
+                        <option value="city">City</option>
+                        <option value="image">Image Url</option>
+                        <option value="school">College</option>
+                        <option value="degree">Degrees</option>
+                        <option value="role">Role</option>
+                        <option value="skype">Skype</option>
+                        <option value="hours">Work Hours</option>
+                        <option value="skills">Skills</option>
+                        <option value="likes">Things you love</option>
+                        <option value="movie">Favorite Movie</option>
+                        <option value="linkedin">Linked In</option>
+                        <option value="google">Google+</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="website">Website Url</option>
+                    </select>
+                    
+                    <br>
+                    
+                    <label for="nerd-meta-value">And that is:</label>
+                    <input type="text" name="nerd-meta-value" id="nerd-meta-value" value=""/>
+                    
+                    <br><br>
+                    <a id="add-to-nerd-btn" data-inline="true" data-role="button" class="extruded right"><span class="icon-font pad-right">.</span>Go</a>
+				</div><!-- /content -->
+	
+		</div><!-- /page -->
+        
+        <div data-role="page" id="remove-nerd-meta">
+        
+        		<div data-role="header" data-theme="c">
+                    <a class="extruded" id="remove-nerd-meta-back" data-rel="back"><span class="icon-font pad-right">;</span>Back</a>
+					<h1 id="name">Remove</h1>
+				</div><!-- /header -->
+				
+				<div data-role="content">
+                    <br>
+                        <p class="center"><span class="icon-font pad-right">/</span>Select as many as you want to remove.</p>
+                    <br>
+                    
+                    <div data-role="fieldcontain">
+                        <fieldset id="meta-to-remove-checklist" data-role="controlgroup">
+                           
+                        </fieldset>
+                    </div>
+                    
+                    <br><br>
+                    <a id="remove-from-nerd-btn" data-inline="true" data-role="button" class="extruded right"><span class="icon-font pad-right">W</span>Delete</a>
+				</div><!-- /content -->
+	
+		</div><!-- /page -->
+        
+        <script src="js/script.js"></script>
+        <script src="js/nerd.js"></script>
+        <script src="js/nerd-list.js"></script>
+        <script src="js/new-nerd.js"></script>
+        <script src="js/nerd-meta.js"></script>
+        <script src="js/nerd-remove-meta.js"></script>
+		
+	</body>
+</html>
