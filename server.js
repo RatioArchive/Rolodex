@@ -18,7 +18,7 @@ http.createServer(function(request, response) {
     }
 
 
-}).listen(process.env.PORT || 3030, '127.0.0.1');
+}).listen(process.env.PORT || 3030);
 console.log('server running...');
 
 // FILE SERVER //
