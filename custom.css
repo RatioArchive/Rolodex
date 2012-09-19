@@ -12,12 +12,32 @@ reference for character mapping here: http://www.justbenicestudio.com/studio/web
 .icon-font {
     font-family: 'WebSymbolsRegular';
 }
-/* prevent images from extending beyond their container or mobile viewport */
-img[src^=#] {
-    max-width: 100%;
-    background: url(img/ratio-loading.gif) no-repeat center center;
-    background-size: 50% auto;
+/* prevent images from extending beyond their container or mobile viewport [src^=#] */
+h5 img {
+    width:100px;
 }
+img {
+    max-width:100%;
+}
+[nerd] {
+    display: block;
+}
+[nerd] .image {
+    width:80%;
+    margin-top:10px;
+    display: inline-block;
+    border-radius: 5px;
+}
+body {
+    background:
+radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#282828;
+background-size:16px 16px;
+}
+
 #home header {
     background-color:rgba(56,178,205,1);
     text-align: center;
@@ -159,6 +179,8 @@ img[src^=#] {
 
 .user-li-placeholder {
     padding: 18px 20px 10px 10px;
+    font-size:6em;
+    opacity:0.2;
 }
 #nerd-pic {
     background-position: center center;

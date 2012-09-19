@@ -1,16 +1,23 @@
-// This lets you make your calls before jquery-mobile does it's ajax calls to display this page //
-$(document).delegate('#home', 'pagebeforecreate', function() {
-    //nerdList();     // js/nerd-names.js
-});
+function swatchIt() {
+        $( '#nerd-list' ).swatchbook( {
+            speed       : 500,
+            easing      : 'ease-out',
+            // index of initial centered item
+            center      : 7,
+            // number of degrees that is between each item
+            angleInc    : 14,
+            // amount in degrees for the opened item's next sibling
+            proximity   : 40,
+            // amount in degrees between the opened item's next siblings
+            neighbor    : 2
+        } );
+    }
 
 // Document Ready Stuffs //
 $(document).ready(function() {
 
     nerdList();
 
-    // set jq mobile defaults
-    $.mobile.defaultPageTransition      = 'flow';
-    
     $('#add-nerd-btn').on('tap', function() {
         $.mobile.showPageLoadingMsg();
         newNerd($('#new-nerd-name').val());
